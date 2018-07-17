@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@model AnotherApp.Models.Hello
+<h1>
+    Good @if (DateTime.Today.Minute >= 12)
+    {
+        <p>Evening!<br /> It is @Model.CurrentTime</p>
+    }
+    else
+    {
+        <p>Morning! <br /> It is @Model.CurrentTime</p>
+    }
+</h1>
+<body>
+    <div style="border: solid 3px green;">
+        This will be a new page!
+        <br />
+        <div style="border: solid 3px red;">
+            More text more text more text more text more text
+        </div>
+        <br />
+    </div>
+</body>
