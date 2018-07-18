@@ -1,3 +1,9 @@
-﻿@{
+﻿@model AnotherApp.Models.Layout2
+@if (DateTime.Today.Minute % 2 == 0)
+{
+    Layout = "_MyLayout";
+}
+else
+{
     Layout = "_Layout";
 }
