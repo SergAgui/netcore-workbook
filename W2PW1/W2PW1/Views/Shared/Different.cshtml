@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Different";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>My View</title>
+</head>
+<body>
+    <div>
+        Hello World (from the view)
+    </div>
+    <form>
+        <label for="share">Share</label>
+        <input type="radio" name="yesOrNo" id="share" value="Share" />
+        <label for="private">Private</label>
+        <input type="radio" name="yesOrNo" id="private" value="Private" />
+        <input type="submit" value="Send" />
+    </form>
+    <br />
+    <a asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
+</body>
+</html>
