@@ -12,5 +12,6 @@ namespace IssueTracker.DataAccess.Contracts
         public decimal Estimate { get; set; }
         public string Description { get; set; }
         public IssueType Type { get; set; }
+        public List<IssueType> Statuses = new List<IssueType>();
     }
 }
