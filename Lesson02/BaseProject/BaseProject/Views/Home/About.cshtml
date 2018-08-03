@@ -1,7 +1,16 @@
-﻿@{
+﻿@model BaseProject.Models.Name
+@{
     ViewData["Title"] = "About";
 }
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
 
 <p>Use this area to provide additional information.</p>
+
+<form asp-action="RegisterInput" method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <label for="FirstName"></label>
+    <span asp-validation-for="FirstName"></span>
+    <input asp-for="@Model.LastName" />
+    <input type="submit" value="Submit Me" />
+</form>

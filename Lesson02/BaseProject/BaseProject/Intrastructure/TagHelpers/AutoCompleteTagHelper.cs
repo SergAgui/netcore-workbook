@@ -1,4 +1,5 @@
-﻿//using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿//using Microsoft.AspNetCore.Razor.Language;
+//using Microsoft.AspNetCore.Razor.TagHelpers;
 //using System;
 //using System.Collections.Generic;
 //using System.Linq;
@@ -7,6 +8,7 @@
 //namespace BaseProject.Intrastructure.TagHelpers
 //{
 //    [HtmlTargetElement("input", TagStructure = TagStructure.NormalOrSelfClosing)]
+//    [HtmlAttributeName("autocorrect", AttributeStructure??)]
 //    public class AutoCompleteTagHelper : TagHelper
 //    {
 //        private readonly AutoCompleteProvider _autoComplete;
@@ -17,9 +19,9 @@
 
 //        public override void Process(TagHelperContext context, TagHelperOutput output)
 //        {
-//            //context.AllAttributes.Any( input => input.autocomplete );
-//            //output.TagName = "input";
-//            //output.Content.SetContent();
+//            context.AllAttributes.Any( input => input.autocomplete );
+//            output.TagName = "input";
+//            output.Content.SetContent();
 //        }
 //    }
 //}
