@@ -20,5 +20,11 @@ namespace AnotherApp
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
+
+        public static void Somthing()
+        {
+            // var first = () => 100;
+            public Func<string, int> first = i => 100;
+        }
     }
 }
