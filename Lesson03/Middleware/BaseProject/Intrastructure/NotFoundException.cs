@@ -10,10 +10,6 @@ namespace BaseProject.Intrastructure
         public NotFoundException(string username) : base()
         {
             Console.WriteLine($"The user '{username}' is not found");
-            //string NotFoundException(string username) : base
-            //{
-            //    ($"The user '{username}' is not found")
-            //}
         }
         
     }
