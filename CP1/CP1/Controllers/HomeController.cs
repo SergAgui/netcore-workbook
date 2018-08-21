@@ -10,27 +10,20 @@ namespace CP1.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        // GET : Home
+        public ActionResult Index()
         {
             return View();
         }
 
-        public IActionResult About()
+        [HttpPost]
+        public ActionResult Index(Appointment appointment)
         {
-            ViewData["Message"] = "Your application description page.";
+            int? appointmentId = appointment.Id;
+            string name = appointment.Name;
+            string provider = appointment.Provider;
+            string hours = appointment.WorkHours;
 
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
             return View();
         }
 
