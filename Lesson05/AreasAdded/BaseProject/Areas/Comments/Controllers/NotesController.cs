@@ -23,6 +23,8 @@ namespace BaseProject.Area.Controllers
         }
 
         // GET: Comment/Create
+        [HttpPost]
+        [Route("Index")]
         public ActionResult Create()
         {
             return View();

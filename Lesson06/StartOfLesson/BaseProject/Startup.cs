@@ -21,7 +21,7 @@ namespace BaseProject
         public void ConfigureServices(IServiceCollection services)
         {
             // Comment out if you do not have a local Sql Server installed
-            services.AddDbContext<ApplicationContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("BaseProject")));
+            services.AddDbContext<ApplicationContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("BaseProjectDocker")));
             // Uncomment if you do not have a local Sql Server installed
             //services.AddDbContext<ApplicationContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("BaseProjectHosted")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -41,7 +41,12 @@ namespace BaseProject
 
             app.UseStaticFiles();
 
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("area", "{area:exists}/{controller}/{action}/{id?}");
+                routes.MapRoute("default", "{controller}/{action}/{id?}");
+
+            });
         }
     }
 }
