@@ -16,15 +16,44 @@ namespace CP1.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Index(Appointment appointment)
+        public ActionResult Details()
         {
-            int? appointmentId = appointment.Id;
-            string name = appointment.Name;
-            string provider = appointment.Provider;
-            string hours = appointment.WorkHours;
-
             return View();
+        }
+
+        // POST : Home / Details
+        [HttpPost]
+        public ActionResult Details(Appointment appointment)
+        {
+            var id = appointment.Id;
+            var name = appointment.Name;
+            var provider = appointment.Provider;
+            var hours = appointment.WorkHours;
+            TryUpdateModelAsync(appointment);
+            return View(appointment);
+        }
+        //public ActionResult Index([FromForm] Appointment appointment)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View();
+        //    }
+        //    try
+        //    {
+        //        return RedirectToAction(nameof(Details));
+        //    }
+        //    catch
+        //    {
+        //        ModelState.AddModelError("", "Error Saving");
+        //        return View();
+        //    }
+        //}
+
+        [HttpGet]
+        public ActionResult Details(int? id, Appointment appointment)
+        {
+            id = appointment.Id;
+            return View(appointment);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

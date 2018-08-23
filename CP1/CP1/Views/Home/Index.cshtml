@@ -9,69 +9,39 @@
     <title>Index</title>
 </head>
 <body>
-    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    @using (Html.BeginForm("Details", "Home", FormMethod.Post))
     {
-        <div>
-            <div>
-                <p colspan="8" align="center">Make An Appointment</p>
-            </div>
-            <div>
-                <p>Id: </p>
-                <p>
-                    @Html.TextBoxFor(i => i.Id)
-                </p>
-            </div>
-            <div>
-                <p>Name: </p>
-                <p>
-                    @Html.TextBoxFor(n => n.Name)
-                </p>
-            </div>
-            <div>
-                <p>Provider: </p>
-                <p>
-                    @Html.DropDownListFor(p => p.Provider, new List<SelectListItem>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Id" class="control-label"></label>
+            @Html.TextBoxFor(i => i.Id)
+            <span asp-validation-for="Id" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Provider" class="control-label"></label>
+            @Html.DropDownListFor(p => p.Provider, new List<SelectListItem>
                         {
                             new SelectListItem{Text="Sandra", Value="Available"},
                             new SelectListItem{Text="Mike", Value="Available"},
                             new SelectListItem{Text="Tina", Value="Available"},
                             new SelectListItem{Text="Alex", Value="Available"}
                         }, "Select One")
-                </p>
-            </div>
-            <div>
-                <p>Time: </p>
-                <p>
-                    <input type="date" name="WorkHours" value="" />
-                </p>
-            </div>
-            <div>
-                <p></p>
-                <p><input type="submit" value="Save" /></p>
-                <p><input type="reset" /></p>
-            </div>
+            <span asp-validation-for="Provider" class="text-danger"></span>
         </div>
-        @foreach (var item in Model)
-        {
-            <div>
-                <p>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </p>
-                <p>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </p>
-                <p>
-                    @Html.DisplayFor(modelItem => item.Provider)
-                </p>
-                <p>
-                    @Html.DisplayFor(modelItem => item.WorkHours)
-                </p>
-                <p>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id })
-                </p>
-            </div>
-        }
-    }
+        <div class="form-group">
+            <label asp-for="WorkHours" class="control-label"></label>
+            <input type="date" name="WorkHours" value="" />
+            <span asp-validation-for="WorkHours" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" />
+            <input type="reset" />
+        </div>
+  }
 </body>
 </html>
