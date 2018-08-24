@@ -32,22 +32,6 @@ namespace CP1.Controllers
             TryUpdateModelAsync(appointment);
             return View(appointment);
         }
-        //public ActionResult Index([FromForm] Appointment appointment)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View();
-        //    }
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Details));
-        //    }
-        //    catch
-        //    {
-        //        ModelState.AddModelError("", "Error Saving");
-        //        return View();
-        //    }
-        //}
 
         [HttpGet]
         public ActionResult Details(int? id, Appointment appointment)
