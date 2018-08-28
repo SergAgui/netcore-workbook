@@ -1,4 +1,6 @@
-﻿namespace BaseProject.BillingLogic
+﻿using System;
+
+namespace BaseProject.BillingLogic
 {
     public class BillingFacade
     {
@@ -10,6 +12,13 @@
             var billingLib2013 = new BillingCalculatorLib.BillingCalculator2013(hourlyRate, taxRate);
             var billingLib2017 = new BillingCalculatorLib.BillingCalculator2017(hourlyRate, taxRate);
             var billingLibCurrent = new BillingCalculatorLib.BillingCalculator(hourlyRate, taxRate);
+        }
+        public decimal CalculateBillableCost(TimeSpan hoursWorked)
+        {
+            var hourlyRate = 15.50m;
+            var taxRate = 0.0223m;
+            var calc = new BillingCalculatorLib.BillingCalculator2017(hourlyRate, taxRate);
+            return calc.CalculateEmployeeBillableCost(hoursWorked);
         }
     }
 }

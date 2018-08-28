@@ -77,9 +77,33 @@ namespace BaseProject.Controllers
 
         private void CalcuateCost(WorkTicket workTicket)
         {
+            // var calc = calculator(start, end, expat);
+            // workTicket.Cost = calc.Calculate();
             //TODO: Today's lesson
-
-
+            if (workTicket.IsPre2010())
+            {
+                var calc = new BillingCalculatorLib.BillingCalculator2010(10.00m);
+                var hoursWorked = calc.CalculateBillableHours(workTicket.Start, workTicket.End);
+                workTicket.Cost = calc.CalculateBillableCost(hoursWorked);
+            }
+            else if (workTicket.IsPre2013())
+            {
+                var calc = new BillingCalculatorLib.BillingCalculator2013(10.00m, 0.0825m);
+                var hoursWorked = calc.CalculateBillableHours(workTicket.Start, workTicket.End);
+                workTicket.Cost = calc.CalculateBillableCost(hoursWorked);
+            }
+            else if (workTicket.IsPre2017())
+            {
+                var calc = new BillingCalculatorLib.BillingCalculator2017(10.00m, 0.0825m);
+                var hoursWorked = calc.CalculateBillableHours(workTicket.Start, workTicket.End);
+                workTicket.Cost = calc.CalculateEmployeeBillableCost(hoursWorked);
+            }
+            else
+            {
+                var calc = new BillingCalculatorLib.BillingCalculator(10.00m, 0.0825m);
+                var hoursWorked = calc.CalculateBillableHours(workTicket.Start, workTicket.End);
+                workTicket.Cost = calc.CalculateEmployeeBillableCost(hoursWorked, workTicket.IsExpat);
+            }
 
         }
 

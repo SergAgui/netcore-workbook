@@ -1,4 +1,4 @@
-﻿@model Appointment
+﻿@model IEnumerable<Appointment>
 
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -24,6 +24,8 @@
             </tr>
         </thead>
         <tbody>
+            @foreach (var item in Model)
+            {
             <tr>
                 <td>
                     @Html.DisplayFor(item => item.Id)
@@ -38,6 +40,7 @@
                     @Html.DisplayFor(item => item.WorkHours)
                 </td>
             </tr>
+            }
         <tr>@Html.ActionLink("Back to Form", "Index")</tr>
         </tbody>
     </table>
