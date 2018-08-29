@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Comments\Models\" />
+    <Folder Include="Areas\Identity\Services\" />
   </ItemGroup>
 
   <ItemGroup>
