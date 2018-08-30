@@ -5,14 +5,19 @@ using System.Threading.Tasks;
 
 namespace CP1.Models
 {
-    public class ApptRepository
+    public class ApptRepository : IApptRepository
     {
-        private readonly Dictionary<int, Appointment> appt = new Dictionary<int, Appointment>();
+        public List<Customer> Customers = new List<Customer>();
+        public List<Appointment> Appointments = new List<Appointment>();
+        public List<ServiceProvider> ServiceProviders = new List<ServiceProvider>();
 
-        public Task<List<IAppointment>> GetAppointments()
+        public void AnotherCustomer (Customer customer)
         {
-            // var apptList = appt.Values.ToList();
-            return Task.Run(() => appt.Values.Select(appt.ToList());
+            Customer.Add(customer);
+        }
+        public void RemoveCustomer(Customer customer)
+        {
+            Customer.Remove(customer);
         }
     }
 }

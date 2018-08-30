@@ -8,8 +8,12 @@ namespace CP1.Models
 {
     public class ServiceProvider
     {
-            [Key]
-            public int? Id { get; set; }
-            public string Name { get; set; }
+        public ServiceProvider()
+        {
+            Guid Id;
+            Id = Guid.NewGuid();
+        }
+        public Guid Id { get; set; }
+        public string Name { get; set; }
     }
 }

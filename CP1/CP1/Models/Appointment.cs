@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace CP1.Models
 {
-    public class Appointment : IAppointment
+    public class Appointment
     {
-        [Key]
-        public int? Id { get; set; }
+        public Appointment()
+        {
+            Guid Id;
+            Id = Guid.NewGuid();
+        }
+        public Guid Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
