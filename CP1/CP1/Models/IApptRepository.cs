@@ -11,6 +11,11 @@ namespace CP1.Models
         List<Customer> Customers { get;}
         List<ServiceProvider> ServiceProviders { get; }
         void AddCust(Customer customer);
+        void NewAppointment(Appointment appointment);
+        void AddServProv(ServiceProvider serviceProvider);
         void RemoveCust(Customer customer);
+        void RemoveAppointment(Appointment appointment);
+        void RemoveServProv(ServiceProvider serviceProvider);
+
     }
 }

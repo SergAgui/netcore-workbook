@@ -1,4 +1,4 @@
-﻿@model CP1.Models.ApptRepository
+﻿@model IEnumerable<CP1.Models.IApptRepository>
 
 @ViewBag["Title"] = "Customer";
 
@@ -7,6 +7,7 @@
     <title>Details</title>
 </head>
 <br /><br />
+      <a asp-action="Index">Add New Customer</a>
     <table class="table">
         <thead>
             <tr>
@@ -16,14 +17,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (Customer customer in Model.Customers)
+            @foreach (var item in Model)
             {
             <tr>
                 <td>
-                    @customer.Id
-                </td>
-                <td>
-                    @customer.FullName
+                    @item.Customers
                 </td>
             </tr>
             }

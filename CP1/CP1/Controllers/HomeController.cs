@@ -10,6 +10,11 @@ namespace CP1.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IApptRepository repository;
+        public HomeController(IApptRepository repository)
+        {
+            this.repository = repository;
+        }
         // GET : Home
         public ActionResult Index()
         {
@@ -23,16 +28,16 @@ namespace CP1.Controllers
 
         // POST : Home / Details
         [HttpPost]
-        public ActionResult CustomerDetails(Customer appt)
+        public ActionResult CustomerDetails(Customer cust)
         {
-            
-            return View(appt);
+            repository.AddCust(cust);
+            return View(cust);
         }
 
         [HttpPost]
         public ActionResult ProviderDetails(ServiceProvider prov)
         {
-            TryUpdateModelAsync(prov);
+            repository.AddServProv(prov);
             return View(prov);
         }
 
