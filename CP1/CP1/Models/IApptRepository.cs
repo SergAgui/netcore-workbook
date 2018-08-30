@@ -7,8 +7,10 @@ namespace CP1.Models
 {
     public interface IApptRepository
     {
-        List<Appointment> Appointments { get; set; }
-        List<Customer> Customers { get; set; }
-        List<ServiceProvider> ServiceProviders { get; set; }
+        List<Appointment> Appointments { get; }
+        List<Customer> Customers { get;}
+        List<ServiceProvider> ServiceProviders { get; }
+        void AddCust(Customer customer);
+        void RemoveCust(Customer customer);
     }
 }

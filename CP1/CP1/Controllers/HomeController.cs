@@ -23,21 +23,17 @@ namespace CP1.Controllers
 
         // POST : Home / Details
         [HttpPost]
-        public ActionResult Details(Appointment appointment)
+        public ActionResult CustomerDetails(Customer appt)
         {
-            var id = appointment.Id;
-            var name = appointment.Name;
-            var provider = appointment.Provider;
-            var hours = appointment.WorkHours;
-            TryUpdateModelAsync(appointment);
-            return View(appointment);
+            
+            return View(appt);
         }
 
-        [HttpGet]
-        public ActionResult Details(int? id, Appointment appointment)
+        [HttpPost]
+        public ActionResult ProviderDetails(ServiceProvider prov)
         {
-            id = appointment.Id;
-            return View(appointment);
+            TryUpdateModelAsync(prov);
+            return View(prov);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

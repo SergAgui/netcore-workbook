@@ -1,4 +1,4 @@
-﻿@model Appointment
+﻿@model Customer
 
 
 <!DOCTYPE html>
@@ -6,42 +6,31 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Create New Customer</title>
 </head>
 <body>
-    @using (Html.BeginForm("Details", "Home", FormMethod.Post))
+    @using (Html.BeginForm("CustomerDetails", "Home", FormMethod.Post))
     {
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
             <label asp-for="Id" class="control-label"></label>
-            @Html.TextBoxFor(i => i.Id)
+            <div>@ViewData[nameof(Customer.Id)]</div>
             <span asp-validation-for="Id" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Name" class="control-label"></label>
-            <input asp-for="Name" class="form-control" />
-            <span asp-validation-for="Name" class="text-danger"></span>
+            <label asp-for="FirstName" class="control-label"></label>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Provider" class="control-label"></label>
-            @Html.DropDownListFor(p => p.Provider, new List<SelectListItem>
-                        {
-                            new SelectListItem{Text="Sandra", Value="Available"},
-                            new SelectListItem{Text="Mike", Value="Available"},
-                            new SelectListItem{Text="Tina", Value="Available"},
-                            new SelectListItem{Text="Alex", Value="Available"}
-                        }, "Select One")
-            <span asp-validation-for="Provider" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="WorkHours" class="control-label"></label>
-            <input type="date" name="WorkHours" value="" />
-            <span asp-validation-for="WorkHours" class="text-danger"></span>
+            <label asp-for="LastName" class="control-label"></label>
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
         </div>
         <div class="form-group">
             <input type="submit" value="Save" />
             <input type="reset" />
         </div>
-  }
+    }
 </body>
 </html>

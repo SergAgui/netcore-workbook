@@ -1,0 +1,32 @@
+﻿@model CP1.Models.ApptRepository
+
+@ViewBag["Title"] = "Customer";
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<br /><br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Full Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Customer customer in Model.Customers)
+            {
+            <tr>
+                <td>
+                    @customer.Id
+                </td>
+                <td>
+                    @customer.FullName
+                </td>
+            </tr>
+            }
+        <tr>@Html.ActionLink("Back to Customer Form", "Index")</tr>
+        </tbody>
+    </table>

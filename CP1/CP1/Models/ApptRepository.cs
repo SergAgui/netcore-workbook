@@ -7,17 +7,17 @@ namespace CP1.Models
 {
     public class ApptRepository : IApptRepository
     {
-        public List<Customer> Customers = new List<Customer>();
-        public List<Appointment> Appointments = new List<Appointment>();
-        public List<ServiceProvider> ServiceProviders = new List<ServiceProvider>();
+        public List<Customer> Customers { get; } = new List<Customer>();
+        public List<Appointment> Appointments { get;} = new List<Appointment>();
+        public List<ServiceProvider> ServiceProviders { get; } = new List<ServiceProvider>();
 
-        public void AnotherCustomer (Customer customer)
+        public void AddCust (Customer customer)
         {
-            Customer.Add(customer);
+            Customers.Add(customer);
         }
-        public void RemoveCustomer(Customer customer)
+        public void RemoveCust(Customer customer)
         {
-            Customer.Remove(customer);
+            Customers.Remove(customer);
         }
     }
 }

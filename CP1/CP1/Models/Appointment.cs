@@ -14,11 +14,8 @@ namespace CP1.Models
             Id = Guid.NewGuid();
         }
         public Guid Id { get; set; }
-        [Required]
         public string Name { get; set; }
-        [Required]
         public string Provider { get; set; }
-        [Required]
         public string WorkHours { get; set; }
     }
 }
