@@ -5,15 +5,15 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create New Customer</title>
+    <title>Edit Customer</title>
 </head>
 <body>
-    @using (Html.BeginForm("CustomerDetails", "Home", FormMethod.Post))
+    @using (Html.BeginForm("Edit", "Customer", FormMethod.Post))
     {
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
             <label asp-for="Id" class="control-label"></label>
-            <div>@ViewData[nameof(Customer.Id)]</div>
+            <div> @Html.DisplayFor(model => model.Id)</div>
             <span asp-validation-for="Id" class="text-danger"></span>
         </div>
         <div class="form-group">

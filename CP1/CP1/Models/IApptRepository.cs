@@ -12,8 +12,10 @@ namespace CP1.Models
         List<ServiceProvider> ServiceProviders { get; }
         void AddCust(Customer customer);
         void NewAppointment(Appointment appointment);
+        void RmvCustById(Guid guid);
+        Customer GetCustomer(Guid id);
+        void UpdateCustomer(Customer customer);
         void AddServProv(ServiceProvider serviceProvider);
-        void RemoveCust(Customer customer);
         void RemoveAppointment(Appointment appointment);
         void RemoveServProv(ServiceProvider serviceProvider);
 
