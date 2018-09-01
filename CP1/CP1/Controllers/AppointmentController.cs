@@ -17,7 +17,44 @@ namespace CP1.Controllers
         }
         public IActionResult Index()
         {
+            return View(repository.Appointments);
+        }
+
+        public IActionResult Add()
+        {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(Appointment appt)
+        {
+            if (ModelState.IsValid)
+            {
+                repository.AddAppt(appt);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(appt);
+        }
+
+        public IActionResult Remove(Guid id)
+        {
+            repository.RemoveApptById(id);
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult Edit(Guid id)
+        {
+            var appt = repository.GetAppointment(id);
+            return View(appt);
+        }
+        [HttpPost]
+        public IActionResult Edit(Appointment appt)
+        {
+            if (ModelState.IsValid)
+            {
+                repository.UpdateAppt(appt);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(appt);
         }
     }
 }

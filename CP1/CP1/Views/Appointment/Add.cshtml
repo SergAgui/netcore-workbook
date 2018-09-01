@@ -1,0 +1,37 @@
+﻿@model Appointment
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create New Appointment</title>
+</head>
+<body>
+    @using (Html.BeginForm("Add", "Appointment", FormMethod.Post))
+    {
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div asp-validation - summary="ModelOnly" class="text-danger"></div>
+        <label asp-for="Provider" class="control-label">Select a Provider</label>
+        <select asp-for="Provider" class="form-control"></select>
+        <label asp-for="Customer" class="control-label">Select a Customer</label>
+        <select asp-for="Customer" class="form-control"></select>
+        <div class="form-group">
+            <label asp-for="Work" class="control-label">Work Day</label>
+            <select asp-for="Work" class="form-control">
+                <option value="0">Sunday</option>
+                <option value="1">Monday</option>
+                <option value="2">Tuesda</option>
+                <option value="3">Wednesday</option>
+                <option value="4">Thursday</option>
+                <option value="5">Friday</option>
+                <option value="6">Saturday</option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="Save" />
+            <input type="reset" />
+        </div>
+    }
+</body>
+</html>

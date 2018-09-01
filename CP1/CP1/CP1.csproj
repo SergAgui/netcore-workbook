@@ -10,6 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Appointment\Add.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Appointment\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
