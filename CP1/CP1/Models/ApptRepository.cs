@@ -96,5 +96,10 @@ namespace CP1.Models
             var appt = Appointments.Find(c => c.Id == id);
             return appt;
         }
+        public void UpdateAppt(Appointment appt)
+        {
+            RemoveApptById(appt.Id);
+            Appointments.Add(appt);
+        }
     }
 }
