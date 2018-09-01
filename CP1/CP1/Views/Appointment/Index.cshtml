@@ -1,19 +1,20 @@
 ﻿
-<h2>The Customer Index Page</h2>
+<h2>The Appointment Index Page</h2>
 
-@model IEnumerable<CP1.Models.Customer>
+@model IEnumerable<CP1.Models.Appointment>
 @{
-    ViewData["Title"] = "Customer";
+    ViewData["Title"] = "Appointment";
 }
 
     <br /><br />
-    <a asp-action="Add">Add New Customer</a>
+    <a asp-action="Add">Add New Appointment</a>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Full Name</th>
-                <th></th>
+                <th>Customer</th>
+                <th>Provider</th>
+                <th>Day</th>
             </tr>
         </thead>
         <tbody>
@@ -21,7 +22,9 @@
             {
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.Id)</td>
-                <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Customer)</td>
+                <td>@Html.DisplayFor(modelItem => item.Provider)</td>
+                <td>@Html.DisplayFor(modelItem => item.Work)</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit Customer</a>
                     <a asp-action="Remove" asp-route-id="@item.Id">Remove Customer</a>

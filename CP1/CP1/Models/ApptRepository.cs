@@ -15,7 +15,16 @@ namespace CP1.Models
                 Id = Guid.NewGuid()
             }
         };
-        public List<Appointment> Appointments { get;} = new List<Appointment>();
+        public List<Appointment> Appointments { get;} = new List<Appointment>()
+        {
+            new Appointment()
+            {
+                Customer = "Dude McDuderson",
+                Provider = "Man McMann",
+                Work = Appointment.WorkDays.Monday,
+                Id = Guid.NewGuid()
+            }
+        };
         public List<ServiceProvider> ServiceProviders { get; } = new List<ServiceProvider>()
         {
             new ServiceProvider()
@@ -26,6 +35,7 @@ namespace CP1.Models
             }
         };
 
+        //Customer Methods
         public void AddCust(Customer customer)
         {
             customer.Id = Guid.NewGuid();
@@ -48,7 +58,7 @@ namespace CP1.Models
             Customers.Add(customer);
         }
 
-
+        //Provider Methods
         public void AddProv(ServiceProvider serviceProvider)
         {
             serviceProvider.Id = Guid.NewGuid();
@@ -70,5 +80,21 @@ namespace CP1.Models
             ServiceProviders.Add(provider);
         }
 
+        //Appointment Methods
+        public void AddAppt(Appointment appt)
+        {
+            appt.Id = Guid.NewGuid();
+            Appointments.Add(appt);
+        }
+        public void RemoveApptById(Guid guid)
+        {
+            var appt = GetAppointment(guid);
+            Appointments.Remove(appt);
+        }
+        public Appointment GetAppointment(Guid id)
+        {
+            var appt = Appointments.Find(c => c.Id == id);
+            return appt;
+        }
     }
 }

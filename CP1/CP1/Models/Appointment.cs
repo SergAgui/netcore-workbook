@@ -9,7 +9,7 @@ namespace CP1.Models
     public class Appointment
     {
         public Guid Id { get; set; }
-        public string Name { get; set; }
+        public string Customer { get; set; }
         public string Provider { get; set; }
         public enum WorkDays { Monday, Tuesday, Wednesday, Thursday, Friday };
 

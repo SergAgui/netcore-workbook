@@ -23,5 +23,10 @@ namespace CP1.Models
         ServiceProvider GetProvider(Guid id);
         void UpdateProvider(ServiceProvider provider);
 
+
+        void AddAppt(Appointment appt);
+        void RemoveApptById(Guid guid);
+        Appointment GetAppointment(Guid id);
+        void UpdateAppt(Appointment appt);
     }
 }
