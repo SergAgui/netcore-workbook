@@ -1,0 +1,32 @@
+﻿
+<h2>The Index Provider</h2>
+
+@model IEnumerable<CP1.Models.ServiceProvider>
+@{
+    ViewData["Title"] = "Provider";
+}
+
+    <br /><br />
+    <a asp-action="Add">Add New Provider</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Full Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit Provider</a>
+                    <a asp-action="Remove" asp-route-id="@item.Id">Remove Provider</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

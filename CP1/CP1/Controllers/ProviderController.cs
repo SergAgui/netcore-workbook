@@ -7,54 +7,52 @@ using CP1.Models;
 
 namespace CP1.Controllers
 {
-    public class CustomerController : Controller
+    public class ProviderController : Controller
     {
         private readonly IApptRepository repository;
-
-        public CustomerController(IApptRepository appt)
+        public ProviderController(IApptRepository appt)
         {
             repository = appt;
         }
         public IActionResult Index()
         {
-            return View(repository.Customers);
+            return View(repository.ServiceProviders);
         }
-
         public IActionResult Add()
         {
             return View();
         }
-
         [HttpPost]
-        public IActionResult Add(Customer customer)
+        public IActionResult Add(ServiceProvider provider)
         {
             if (ModelState.IsValid)
             {
-                repository.AddCust(customer);
+                repository.AddProv(provider);
                 return RedirectToAction(nameof(Index));
             }
-            return View(customer);
+            return View(provider);
         }
+
 
         public IActionResult Remove(Guid id)
         {
-            repository.RmvCustById(id);
+            repository.RemoveProvById(id);
             return RedirectToAction(nameof(Index));
         }
         public IActionResult Edit(Guid id)
         {
-            var cust = repository.GetCustomer(id);
-            return View(cust);
+            var prov = repository.GetProvider(id);
+            return View(prov);
         }
         [HttpPost]
-        public IActionResult Edit(Customer customer)
+        public IActionResult Edit(ServiceProvider provider)
         {
             if (ModelState.IsValid)
             {
-                repository.UpdateCustomer(customer);
+                repository.UpdateProvider(provider);
                 return RedirectToAction(nameof(Index));
             }
-            return View(customer);
+            return View(provider);
         }
     }
 }

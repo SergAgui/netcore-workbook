@@ -21,26 +21,6 @@ namespace CP1.Controllers
             return View();
         }
 
-        public ActionResult Details()
-        {
-            return View();
-        }
-
-        // POST : Home / Details
-        [HttpPost]
-        public ActionResult CustomerDetails(Customer cust)
-        {
-            repository.AddCust(cust);
-            return View(cust);
-        }
-
-        [HttpPost]
-        public ActionResult ProviderDetails(ServiceProvider prov)
-        {
-            repository.AddServProv(prov);
-            return View(prov);
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -16,12 +16,19 @@ namespace CP1.Models
             }
         };
         public List<Appointment> Appointments { get;} = new List<Appointment>();
-        public List<ServiceProvider> ServiceProviders { get; } = new List<ServiceProvider>();
+        public List<ServiceProvider> ServiceProviders { get; } = new List<ServiceProvider>()
+        {
+            new ServiceProvider()
+            {
+                FirstName = "Jane",
+                LastName = "Dunn",
+                Id = Guid.NewGuid()
+            }
+        };
 
         public void AddCust(Customer customer)
         {
             customer.Id = Guid.NewGuid();
-            // add above to other methods later
             Customers.Add(customer);
         }
         public void RmvCustById(Guid guid)
@@ -40,21 +47,27 @@ namespace CP1.Models
             RmvCustById(customer.Id);
             Customers.Add(customer);
         }
-        public void NewAppointment(Appointment appointment)
+
+
+        public void AddProv(ServiceProvider serviceProvider)
         {
-            Appointments.Add(appointment);
-        }
-        public void AddServProv(ServiceProvider serviceProvider)
-        {
+            serviceProvider.Id = Guid.NewGuid();
             ServiceProviders.Add(serviceProvider);
         }
-        public void RemoveAppointment(Appointment appointment)
+        public void RemoveProvById(Guid guid)
         {
-            Appointments.Remove(appointment);
+            var provider = GetProvider(guid);
+            ServiceProviders.Remove(provider);
         }
-        public void RemoveServProv(ServiceProvider serviceProvider)
+        public ServiceProvider GetProvider(Guid id)
         {
-            ServiceProviders.Add(serviceProvider);
+            var provider = ServiceProviders.Find(c => c.Id == id);
+            return provider;
+        }
+        public void UpdateProvider(ServiceProvider provider)
+        {
+            RemoveProvById(provider.Id);
+            ServiceProviders.Add(provider);
         }
 
     }

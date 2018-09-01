@@ -11,6 +11,8 @@ namespace CP1.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Provider { get; set; }
-        public string WorkHours { get; set; }
+        public enum WorkDays { Monday, Tuesday, Wednesday, Thursday, Friday };
+
+        public WorkDays Work { get; set; }
     }
 }
