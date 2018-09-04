@@ -35,6 +35,11 @@ namespace CP1.Controllers
             }
             return View(appt);
         }
+        [HttpGet]
+        public IActionResult Add(Customer customer, ServiceProvider provider)
+        {
+            return View();
+        }
 
         public IActionResult Remove(Guid id)
         {

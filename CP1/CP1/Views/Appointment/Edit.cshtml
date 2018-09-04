@@ -1,11 +1,12 @@
-﻿@model Appointment
+﻿@using CP1.Models
+@model Appointment
 
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create New Appointment</title>
+    <title>Edit n Appointment</title>
 </head>
 <body>
     @using (Html.BeginForm("Edit", "Appointment", FormMethod.Post))
@@ -14,10 +15,10 @@
         <div asp-validation - summary="ModelOnly" class="text-danger"></div>
         <label asp-for="Customer" class="control-label">Select a Customer</label>
         <select asp-for="Customer" class="form-control">
-            @Html.DropDownListFor(model => model.Customer, SelectList())
         </select>
         <label asp-for="Provider" class="control-label">Select a Provider</label>
-        <select asp-for="Provider" class="form-control"></select>
+        <select asp-for="Provider" class="form-control">
+        </select>
         <div class="form-group">
             <label asp-for="Work" class="control-label">Select a Day</label>
             <select asp-for="Work" class="form-control">
