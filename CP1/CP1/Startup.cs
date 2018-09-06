@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using CP1.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CP1
 {

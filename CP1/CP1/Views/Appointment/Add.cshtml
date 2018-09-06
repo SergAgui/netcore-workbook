@@ -8,16 +8,24 @@
     <title>Create New Appointment</title>
 </head>
 <body>
-    @using (Html.BeginForm("Edit", "Appointment", FormMethod.Post))
+    @using (Html.BeginForm("Add", "Appointment", FormMethod.Post))
     {
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div asp-validation - summary="ModelOnly" class="text-danger"></div>
-        <label asp-for="Customer" class="control-label">Select a Customer</label>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <label>Select a Customer</label>
         <select asp-for="Customer" class="form-control">
-            @Html.DropDownListFor(model => model.Customer, SelectList())
+            @foreach (Customer customer in ViewData["NewCustomer"] as List<Customer>)
+            {
+                <option value="@customer.FullName ">@customer.FullName</option>
+            }
         </select>
         <label asp-for="Provider" class="control-label">Select a Provider</label>
-        <select asp-for="Provider" class="form-control"></select>
+        <select asp-for="Provider" class="form-control">
+            @foreach (ServiceProvider provider in ViewData["NewProvider"] as List<ServiceProvider>)
+            {
+                <option value="@provider.FullName">@provider.FullName</option>
+            }
+        </select>
         <div class="form-group">
             <label asp-for="Work" class="control-label">Select a Day</label>
             <select asp-for="Work" class="form-control">

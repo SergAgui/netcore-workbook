@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.WindowsServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
@@ -17,7 +18,7 @@ namespace BaseProject
                     logging.AddDebug();
                 })
                 .Build();
-            host.Run();
+            host.RunAsService();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

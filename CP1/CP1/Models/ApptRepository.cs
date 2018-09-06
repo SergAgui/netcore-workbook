@@ -96,10 +96,56 @@ namespace CP1.Models
             var appt = Appointments.Find(c => c.Id == id);
             return appt;
         }
-        public void UpdateAppt(Appointment appt)
+
+        //Create a new appointment
+        public void NewAppt(Appointment appointment)
         {
-            RemoveApptById(appt.Id);
-            Appointments.Add(appt);
+            List<Appointment> appointments = Appointments;
+
+            var InvalidAppointment = appointments.Any(appt => ((appt.Customer == appointment.Customer ||
+            appt.Provider == appointment.Provider) && appt.Work == appointment.Work));
+
+            if (InvalidAppointment)
+            {
+                throw new BadApptException("Not a valid Appointment");
+            }
+
+            var ValidCustomer = Customers.Any(cust => cust.FullName == appointment.Customer);
+            if (!ValidCustomer)
+            {
+                throw new BadCustomerException("Not a valid Customer");
+            }
+
+            var isValidServiceProvider = ServiceProviders.Any(c => c.FullName == appointment.Provider);
+            if (!isValidServiceProvider)
+            {
+                throw new BadProviderException("Not a valid Provider");
+            }
+
+            AddAppt(appointment);
+
+        }
+
+        //Exceptions
+        public class BadApptException : Exception
+        {
+            public BadApptException(string message) : base(message)
+            {
+            }
+        }
+
+        public class BadCustomerException : Exception
+        {
+            public BadCustomerException(string message) : base(message)
+            {
+            }
+        }
+
+        public class BadProviderException : Exception
+        {
+            public BadProviderException(string message) : base(message)
+            {
+            }
         }
     }
 }

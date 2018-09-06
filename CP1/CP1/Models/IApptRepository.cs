@@ -27,6 +27,6 @@ namespace CP1.Models
         void AddAppt(Appointment appt);
         void RemoveApptById(Guid guid);
         Appointment GetAppointment(Guid id);
-        void UpdateAppt(Appointment appt);
+        void NewAppt(Appointment appointment);
     }
 }
