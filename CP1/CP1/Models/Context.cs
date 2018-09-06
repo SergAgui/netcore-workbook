@@ -13,6 +13,7 @@ namespace CP1.Models
         public DbSet<ServiceProvider> Providers { get; set; }
         public Context(DbContextOptions<Context> options) : base(options)
         {
+            
         }
     }
 }

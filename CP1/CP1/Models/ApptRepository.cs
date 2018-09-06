@@ -7,33 +7,9 @@ namespace CP1.Models
 {
     public class ApptRepository : IApptRepository
     {
-        public List<Customer> Customers { get; } = new List<Customer>() {
-            new Customer()
-            {
-                FirstName = "John",
-                LastName = "Doe",
-                Id = Guid.NewGuid()
-            }
-        };
-        public List<Appointment> Appointments { get;} = new List<Appointment>()
-        {
-            new Appointment()
-            {
-                Customer = "Dude McDuderson",
-                Provider = "Man McMann",
-                Work = Appointment.WorkDays.Monday,
-                Id = Guid.NewGuid()
-            }
-        };
-        public List<ServiceProvider> ServiceProviders { get; } = new List<ServiceProvider>()
-        {
-            new ServiceProvider()
-            {
-                FirstName = "Jane",
-                LastName = "Dunn",
-                Id = Guid.NewGuid()
-            }
-        };
+        public List<Customer> Customers { get; } = new List<Customer>();
+        public List<Appointment> Appointments { get;} = new List<Appointment>();
+        public List<ServiceProvider> ServiceProviders { get; } = new List<ServiceProvider>();
 
         //Customer Methods
         public void AddCust(Customer customer)
@@ -86,16 +62,17 @@ namespace CP1.Models
             appt.Id = Guid.NewGuid();
             Appointments.Add(appt);
         }
-        public void RemoveApptById(Guid guid)
-        {
-            var appt = GetAppointment(guid);
-            Appointments.Remove(appt);
-        }
         public Appointment GetAppointment(Guid id)
         {
             var appt = Appointments.Find(c => c.Id == id);
             return appt;
         }
+        public void RemoveApptById(Guid guid)
+        {
+            var appt = GetAppointment(guid);
+            Appointments.Remove(appt);
+        }
+
 
         //Create a new appointment
         public void NewAppt(Appointment appointment)
