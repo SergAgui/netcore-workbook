@@ -116,8 +116,8 @@ namespace CP1.Models
                 throw new BadCustomerException("Not a valid Customer");
             }
 
-            var isValidServiceProvider = ServiceProviders.Any(c => c.FullName == appointment.Provider);
-            if (!isValidServiceProvider)
+            var ValidProvider = ServiceProviders.Any(c => c.FullName == appointment.Provider);
+            if (!ValidProvider)
             {
                 throw new BadProviderException("Not a valid Provider");
             }
