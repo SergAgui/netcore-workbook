@@ -12,27 +12,27 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <label>Select a Customer</label>
-        <select asp-for="Customer" class="form-control">
+        <select asp-for="CustomerId" class="form-control">
             @foreach (Customer customer in ViewData["NewCustomer"] as List<Customer>)
             {
-                <option value="@customer.FullName ">@customer.FullName</option>
+                <option value="@customer.Id">@customer.FullName</option>
             }
         </select>
-        <label asp-for="Provider" class="control-label">Select a Provider</label>
-        <select asp-for="Provider" class="form-control">
+        <label asp-for="ProviderId" class="control-label">Select a Provider</label>
+        <select asp-for="ProviderId" class="form-control">
             @foreach (ServiceProvider provider in ViewData["NewProvider"] as List<ServiceProvider>)
             {
-                <option value="@provider.FullName">@provider.FullName</option>
+                <option value="@provider.Id">@provider.FullName</option>
             }
         </select>
         <div class="form-group">
             <label asp-for="Work" class="control-label">Select a Day</label>
             <select asp-for="Work" class="form-control">
-                <option value="1">Monday</option>
-                <option value="2">Tuesda</option>
-                <option value="3">Wednesday</option>
-                <option value="4">Thursday</option>
-                <option value="5">Friday</option>
+                <option value="@Appointment.WorkDays.Monday">Monday</option>
+                <option value="@Appointment.WorkDays.Tuesday">Tuesday</option>
+                <option value="@Appointment.WorkDays.Wednesday">Wednesday</option>
+                <option value="@Appointment.WorkDays.Thursday">Thursday</option>
+                <option value="@Appointment.WorkDays.Friday">Friday</option>
             </select>
         </div>
         <div>

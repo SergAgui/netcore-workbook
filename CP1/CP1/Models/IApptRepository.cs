@@ -7,26 +7,29 @@ namespace CP1.Models
 {
     public interface IApptRepository
     {
-        List<Appointment> Appointments { get; }
-        List<Customer> Customers { get;}
-        List<ServiceProvider> ServiceProviders { get; }
+        //List<Appointment> Appointments { get; }
+        //List<Customer> Customers { get;}
+        //List<ServiceProvider> ServiceProviders { get; }
 
 
         void AddCust(Customer customer);
-        void RmvCustById(Guid guid);
-        Customer GetCustomer(Guid id);
+        void RmvCustById(int guid);
+        Customer GetCustomer(int id);
+        List<Customer> GetAllCustomers();
         void UpdateCustomer(Customer customer);
 
 
         void AddProv(ServiceProvider serviceProvider);
-        void RemoveProvById(Guid guid);
-        ServiceProvider GetProvider(Guid id);
+        void RemoveProvById(int guid);
+        ServiceProvider GetProvider(int id);
+        List<ServiceProvider> GetAllProviders();
         void UpdateProvider(ServiceProvider provider);
 
 
         void AddAppt(Appointment appt);
-        void RemoveApptById(Guid guid);
-        Appointment GetAppointment(Guid id);
+        void RemoveApptById(int guid);
+        Appointment GetAppointment(int id);
+        List<Appointment> GetAllAppointments();
         void NewAppt(Appointment appointment);
     }
 }

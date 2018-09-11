@@ -21,8 +21,8 @@
             {
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.Id)</td>
-                <td>@Html.DisplayFor(modelItem => item.Customer)</td>
-                <td>@Html.DisplayFor(modelItem => item.Provider)</td>
+                <td>@Html.DisplayFor(modelItem => item.Customer.FullName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Provider.FullName)</td>
                 <td>@Html.DisplayFor(modelItem => item.Work)</td>
                 <td>
                     <a asp-action="Remove" asp-route-id="@item.Id">Remove Customer</a>

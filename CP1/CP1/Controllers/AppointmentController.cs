@@ -17,7 +17,7 @@ namespace CP1.Controllers
         }
         public IActionResult Index()
         {
-            return View(repository.Appointments);
+            return View(repository.GetAllAppointments());
         }
 
 
@@ -27,12 +27,12 @@ namespace CP1.Controllers
             try
             {
                 repository.NewAppt(appointment);
-                return View("Index", repository.Appointments);
+                return View("Index", repository.GetAllAppointments());
             }
-            catch
+            catch (Exception ex)
             {
                 ViewBag.message = "Not a valid appointment.";
-                return View("Index", repository.Appointments);
+                return View("Add", repository.GetAllAppointments());
             }
         }
 
@@ -41,7 +41,7 @@ namespace CP1.Controllers
         public IActionResult Add(Customer customer, ServiceProvider serviceProvider)
         {
             List<ServiceProvider> NewProvider = new List<ServiceProvider>();
-            foreach (var provider in repository.ServiceProviders)
+            foreach (var provider in repository.GetAllProviders())
             {
                 NewProvider.Add(provider);
             }
@@ -49,7 +49,7 @@ namespace CP1.Controllers
             ViewData["NewProvider"] = NewProvider;
 
             List<Customer> NewCustomer = new List<Customer>();
-            foreach (var cust in repository.Customers)
+            foreach (var cust in repository.GetAllCustomers())
             {
                 NewCustomer.Add(cust);
             }
@@ -60,7 +60,7 @@ namespace CP1.Controllers
         }
 
 
-        public IActionResult Remove(Guid id)
+        public IActionResult Remove(int id)
         {
             repository.RemoveApptById(id);
             return RedirectToAction(nameof(Index));

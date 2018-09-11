@@ -17,7 +17,7 @@ namespace CP1.Controllers
         }
         public IActionResult Index()
         {
-            return View(repository.Customers);
+            return View(repository.GetAllCustomers());
         }
 
         public IActionResult Add()
@@ -36,12 +36,12 @@ namespace CP1.Controllers
             return View(customer);
         }
 
-        public IActionResult Remove(Guid id)
+        public IActionResult Remove(int id)
         {
             repository.RmvCustById(id);
             return RedirectToAction(nameof(Index));
         }
-        public IActionResult Edit(Guid id)
+        public IActionResult Edit(int id)
         {
             var cust = repository.GetCustomer(id);
             return View(cust);

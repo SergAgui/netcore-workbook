@@ -16,7 +16,7 @@ namespace CP1.Controllers
         }
         public IActionResult Index()
         {
-            return View(repository.ServiceProviders);
+            return View(repository.GetAllProviders());
         }
         public IActionResult Add()
         {
@@ -34,12 +34,12 @@ namespace CP1.Controllers
         }
 
 
-        public IActionResult Remove(Guid id)
+        public IActionResult Remove(int id)
         {
             repository.RemoveProvById(id);
             return RedirectToAction(nameof(Index));
         }
-        public IActionResult Edit(Guid id)
+        public IActionResult Edit(int id)
         {
             var prov = repository.GetProvider(id);
             return View(prov);
