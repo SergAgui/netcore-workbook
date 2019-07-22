@@ -21,5 +21,15 @@ namespace CP1Tests
             //Assert
             Assert.AreEqual("Index", result.ViewName);
         }
+
+        [TestMethod]
+        public void DeleteAppointmentTest()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+        }
     }
 }

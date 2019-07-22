@@ -7,6 +7,7 @@ namespace CP1.Models
 {
     public interface IApptRepository
     {
+        //Lists were used before a 
         //List<Appointment> Appointments { get; }
         //List<Customer> Customers { get;}
         //List<ServiceProvider> ServiceProviders { get; }
