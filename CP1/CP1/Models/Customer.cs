@@ -13,7 +13,8 @@ namespace CP1.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FullName
-        { get
+        {
+            get
             {
                 return FirstName + " " + LastName;
             }

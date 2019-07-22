@@ -10,15 +10,11 @@ namespace CP1.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IApptRepository repository;
-        public HomeController(IApptRepository repository)
-        {
-            this.repository = repository;
-        }
+        
         // GET : Home
         public ActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
