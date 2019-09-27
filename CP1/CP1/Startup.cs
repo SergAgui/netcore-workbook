@@ -28,7 +28,7 @@ namespace CP1
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<Context>(opts => opts.UseSqlServer(Configuration.GetConnectionString("CheckpointDb")));
+            services.AddDbContext<Context>(opts => opts.UseSqlServer(Configuration.GetConnectionString("Spa20190926085411_db")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             //services.AddSingleton<IApptRepository>(new ApptRepository());
             services.AddTransient<IApptRepository, ApptRepository>();
