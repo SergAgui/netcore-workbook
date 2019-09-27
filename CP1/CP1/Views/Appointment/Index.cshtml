@@ -1,4 +1,4 @@
-﻿<h2>The Appointment Index Page</h2>
+﻿<h2>Appointment Page</h2>
 
 @model IEnumerable<CP1.Models.Appointment>
 @{
@@ -6,13 +6,13 @@
 }
 
     <br /><br />
-    <a asp-action="Add">Add New Appointment</a>
+    <a asp-action="Add">Add Appointment</a>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Customer</th>
-                <th>Provider</th>
+                <th>Service Provider</th>
                 <th>Day</th>
             </tr>
         </thead>
@@ -25,7 +25,7 @@
                 <td>@Html.DisplayFor(modelItem => item.Provider.FullName)</td>
                 <td>@Html.DisplayFor(modelItem => item.Work)</td>
                 <td>
-                    <a asp-action="Remove" asp-route-id="@item.Id">Remove Customer</a>
+                    <a asp-action="Remove" asp-route-id="@item.Id">Remove Appointment</a>
                 </td>
             </tr>
             }

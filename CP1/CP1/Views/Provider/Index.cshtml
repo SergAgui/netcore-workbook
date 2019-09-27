@@ -1,13 +1,10 @@
-﻿
-<h2>The Provider Index Page</h2>
-
-@model IEnumerable<CP1.Models.ServiceProvider>
+﻿@model IEnumerable<CP1.Models.ServiceProvider>
 @{
     ViewData["Title"] = "Provider";
 }
-
+    <h2>New Service Provider Page</h2>
     <br /><br />
-    <a asp-action="Add">Add New Provider</a>
+    <a asp-action="Add">Add New Service Provider</a>
     <table class="table">
         <thead>
             <tr>
@@ -23,8 +20,8 @@
                 <td>@Html.DisplayFor(modelItem => item.Id)</td>
                 <td>@Html.DisplayFor(modelItem => item.FullName)</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit Provider</a>
-                    <a asp-action="Remove" asp-route-id="@item.Id">Remove Provider</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit Service Provider</a>
+                    <a asp-action="Remove" asp-route-id="@item.Id">Remove Service Provider</a>
                 </td>
             </tr>
             }

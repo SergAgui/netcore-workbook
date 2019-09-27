@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create New Appointment</title>
+    <title>Create a new Appointment</title>
 </head>
 <body>
     <form asp-action="Add">
@@ -18,7 +18,7 @@
                 <option value="@customer.Id">@customer.FullName</option>
             }
         </select>
-        <label asp-for="ProviderId" class="control-label">Select a Provider</label>
+        <label asp-for="ProviderId" class="control-label">Select a Service Provider</label>
         <select asp-for="ProviderId" class="form-control">
             @foreach (ServiceProvider provider in ViewData["NewProvider"] as List<ServiceProvider>)
             {
